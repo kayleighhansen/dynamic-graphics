@@ -1,0 +1,47 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+}
+
+.expanding-image {
+    height: 400px;
+}
+
+.highlight-overlay {
+    height: 400px;
+    width: 600px;
+    display:grid;
+    opacity: 30%;
+    position: fixed;
+    top: 90px;
+    grid-template-columns: repeat(50, 1fr);
+    grid-template-rows: repeat(40, 1fr);
+}
+
+.box1 {
+    grid-column: 21/33;
+    grid-row: 12/27;
+}
+
+.button {
+    display:none;
+}
+
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
