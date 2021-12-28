@@ -127,7 +127,7 @@ for (let i = 0; i < data.boxes.length; i++) {
         boxLeft.setAttribute("style", `grid-column:1/${boxes.left}; grid-row: 1/51; background-color: lightgray; visibility: hidden; opacity: 0; transition: visibility 0s 2s, opacity  0.5s linear;`);
         boxRight.setAttribute("style", `grid-column:${boxes.right}/51; grid-row: 1/51; background-color: lightgray; visibility: hidden; opacity: 0; transition: visibility 0s 2s, opacity  0.5s linear;`);
 
-        // reset the text, fade out
+        // reset the text, fade out animation
         let title = document.getElementsByClassName("paragraphTitle")[0];
         title.setAttribute("style", "visibility: hidden; opacity: 0; transition: visibility 0s 2s, opacity  0.5s linear;");
 
