@@ -37,7 +37,7 @@ let data = {
             "top" : 14,
             "bottom": 51,
             "left": 1,
-            "right": 15,
+            "right": 16,
             "url": "#"
         },
         {
@@ -137,5 +137,3 @@ for (let i = 0; i < data.boxes.length; i++) {
 
     }, false);
 };
-
-
