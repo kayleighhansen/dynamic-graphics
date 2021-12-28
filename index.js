@@ -72,6 +72,7 @@ let bottomLayer = document.getElementsByClassName("bottom-layer")[0];
 let leftLayer = document.getElementsByClassName("left-layer")[0];
 let rightLayer = document.getElementsByClassName("right-layer")[0];
 
+// selecting the text on the page that will be altered
 let captions = document.getElementsByClassName("caption")[0];
 let button = document.getElementsByClassName("button")[0];
 
