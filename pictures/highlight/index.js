@@ -82,7 +82,7 @@ for (let i = 0; i < data.boxes.length; i++) {
 
     // create the box to add the hover event to
     let box = document.createElement("div");
-    box.setAttribute("style", `grid-column:${boxes.left}/${boxes.right}; grid-row: ${boxes.top}/${boxes.bottom};`);
+    box.setAttribute("style", `grid-column:${boxes.left}/${boxes.right}; grid-row: ${boxes.top}/${boxes.bottom}; z-index: 1;`);
     box.setAttribute("id", `box${boxes.id}`);
 
     overlay.appendChild(box);
