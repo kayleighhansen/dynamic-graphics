@@ -1,0 +1,98 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar-default {
+    border-radius: 0;
+    box-shadow: 1px 1px 3px lightgray;
+    height:70px;
+    background-color: white;
+    border: none;
+}
+
+.navbar-brand {
+    padding: 5px 15px;
+}
+
+.navbar-brand {
+    margin-top: 0px;
+}
+
+#bs-example-navbar-collapse-1 {
+    margin-top: 20px;
+}
+
+.multi-sectioned-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sectioned {
+    min-width:360px;;
+    padding: 0;
+    margin:0;
+}
+
+.dropdown-list-header {
+    color: black;
+}
+
+.non-sectioned {
+    min-width: 185px;
+}
+
+a {
+    color: #333;
+}
+
+.dropdown-menu .divider {
+    margin:0;
+}
+
+.dropdown-list-item {
+    padding: 3px 20px;;
+}
+
+.sectioned-menu div {
+    border-left: 0.5px solid lightgray;
+}
+
+li:hover {
+    background-color:rgb(243, 243, 243);
+    cursor:default;
+}
+
+a:hover {
+    text-decoration: none;
+    color:black;
+    cursor:default;
+}
+
+.sectioned:hover {
+    cursor:default;
+}
+
+.sign-in-btn {
+    background-color: rgb(235, 235, 235);
+}
+
+.form-control, .btn-default {
+    border-radius:0
+}
+
+.navbar-toggle {
+    margin-top: 28px;
+    border: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar-form {
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-default {
+        height: 34px;
+    }
+  }
+
