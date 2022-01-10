@@ -21,19 +21,18 @@
 }
 
 .circle-nav-item {
-    height: 80px; 
-    width:80px;
     border-radius: 50%;
     margin-top: 20px;
     display:flex;
     justify-items: center;
     align-items: center;
     color:white;
+    transition: 0.5s;
 }
 
 .navbar-default .navbar-nav>li>a {
     color:white;
-    padding-top: 27px;
+    padding-top: 20px;
     padding-bottom: 24px;
     text-align: center;
     margin: 20px;
@@ -41,6 +40,12 @@
 
 .item1 {
     background-color:#892b64;
+}
+
+.item1:hover, .item2:hover, .item3:hover, .item4:hover, .item5:hover, .item6:hover, .logo-circle:hover {
+    background-color:black !important;
+    color:white !important;
+    animation: updown 1s ease infinite;;
 }
 
 .item2 {
@@ -61,4 +66,51 @@
 
 .item6 {
     background-color: #0091ad;
+}
+
+@keyframes updown {
+    0% {
+      transform: translateY(-5%);
+    }
+  
+    50% {
+      transform: translateY(5%);
+    }
+  
+    100% {
+      transform: translateY(-5%);
+    }
+  }
+
+.sectioned {
+    margin: 10px;
+    width: 400px;
+}
+
+.multi-sectioned-menu {
+    padding: 10px;
+    display: flex;
+}
+
+.multi-sectioned-menu div {
+    margin: 0 20px;
+}
+
+.non-sectioned {
+    padding: 10px;
+}
+
+.dropdown-list-item {
+    padding: 2px 5px;
+}
+
+.dropdown-list-item:hover {
+    background-color: lightgray;
+    cursor: default;
+}
+
+a:hover {
+    text-decoration: none;
+    cursor: default;
+    color: black;
 }
