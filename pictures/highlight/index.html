@@ -5,37 +5,183 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Highlighting Image</title>
-    <link rel="stylesheet" href="index.css">
+    <!-- <link rel="stylesheet" href="index.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <main>
-        <h1 class="title">Highlighting Image</h1>
 
-        <div class="highlighting-img">
-            <img src="highlighting.jpg" alt="" class="expanding-image">
+        <style>
+            * {
+                font-family: 'Roboto', sans-serif;
+            }
 
-            <div class="highlight-overlay coffee-mug-overlay">
+            .dynamic-container {
+                display: flex;
+                justify-content: center;
+            }
 
-                <div class="top-layer layer"></div>
-                <div class="bottom-layer layer"></div>
+            .title {
+                text-align: center;
+            }
 
-                <div class="left-layer layer"></div>
-                <div class="right-layer layer"></div>
-         
-            </div>
+            .expanding-image {
+                height: 400px;
+            }
 
-            <div class="caption">
-                <h3 class="paragraphTitle"></h3>
-                <p class="paragraphText"></p>
+            .highlight-overlay {
+                height: 400px;
+                width: 600px;
+                display:grid;
+                opacity: 30%;
+                position: fixed;
+                top: 90px;
+                grid-template-columns: repeat(50, 1fr);
+                grid-template-rows: repeat(40, 1fr);
+            }
 
-            </div>
+            .box1 {
+                grid-column: 21/33;
+                grid-row: 12/27;
+            }
+
+            .button {
+                display:none;
+            }
+
+
+            @keyframes fadein {
+                from { opacity: 0; }
+                to   { opacity: 1; }
+            }
+
+            @keyframes fadeout {
+                from { opacity: 1; }
+                to   { opacity: 0; }
+            }
+        </style>
+
+        <div class="dynamic-container">
+            <div>
+                <h1 class="title">Highlighting Image</h1>
+
+                <div class="highlighting-img">
+                    <img src="highlighting.jpg" alt="" class="expanding-image">
         
+                    <div class="highlight-overlay coffee-mug-overlay">
+        
+                        <div class="top-layer layer"></div>
+                        <div class="bottom-layer layer"></div>
+        
+                        <div class="left-layer layer"></div>
+                        <div class="right-layer layer"></div>
+                
+                    </div>
+        
+                    <div class="caption">
+                        <h3 class="paragraphTitle"></h3>
+                        <p class="paragraphText"></p>
+        
+                    </div>
+                
+                </div>
+            </div>
         </div>
+
+        <script>
+            let data = {
+                "boxes": [
+                    {
+                        "id": "1",
+                        "title": "Coffee Mug",
+                        "paragraph": "The best coffee mug ever",
+                        "top" : 12,
+                        "bottom": 27,
+                        "left": 21,
+                        "right": 33,
+                        "url": "#"
+                    }
+                ]
+            };
+
+            // main overlay of the picture  
+            let overlay = document.getElementsByClassName("highlight-overlay")[0];
+
+            // the overlay layers, makes the rest of the picture slightly grayed
+            let topLayer = document.getElementsByClassName("top-layer")[0];
+            let bottomLayer = document.getElementsByClassName("bottom-layer")[0];
+            let leftLayer = document.getElementsByClassName("left-layer")[0];
+            let rightLayer = document.getElementsByClassName("right-layer")[0];
+
+            // selecting the text on the page that will be altered
+            let captions = document.getElementsByClassName("caption")[0];
+            let button = document.getElementsByClassName("button")[0];
+
+            // for each item in the data list
+            for (let i = 0; i < data.boxes.length; i++) {
+                let boxes = data.boxes[i];
+
+                // create the box to add the hover event to
+                let box = document.createElement("div");
+                box.setAttribute("style", `grid-column:${boxes.left}/${boxes.right}; grid-row: ${boxes.top}/${boxes.bottom}; z-index: 1;`);
+                box.setAttribute("id", `box${boxes.id}`);
+
+                overlay.appendChild(box);
+
+                // hover event, 
+                box.addEventListener("mouseover", function( event ) {
+
+                    // set dimensions
+                    topLayer.setAttribute("style", `grid-column:1/51; grid-row: 1/${boxes.top}; background-color: lightgray; animation: fadein 0.5s;`);
+                    bottomLayer.setAttribute("style", `grid-column:1/51; grid-row: ${boxes.bottom}/51; background-color: lightgray; animation: fadein 0.5s;`);
+                    leftLayer.setAttribute("style", `grid-column:1/${boxes.left}; grid-row: 1/51; background-color: lightgray; animation: fadein 0.5s;`);
+                    rightLayer.setAttribute("style", `grid-column:${boxes.right}/51; grid-row: 1/51; background-color: lightgray; animation: fadein 0.5s;`);
+
+
+                    // set text 
+                    let title = document.getElementsByClassName("paragraphTitle")[0];
+                    title.setAttribute("style", "animation: fadein 0.5s;");
+                    title.innerHTML = `${boxes.title}`;
+                
+                    let paragraph = document.getElementsByClassName("paragraphText")[0];
+                    paragraph.setAttribute("style", "animation: fadein 0.5s;");
+                    paragraph.innerHTML = `${boxes.paragraph}`;
+
+                    button.setAttribute("style", "display: block;");
+                    button.innerHTML = "Learn More";
+                    button.href=`${boxes.url}`;
+
+                    captions.appendChild(button);
+
+                }, false);
+
+                // after the mouse leaves
+                box.addEventListener("mouseleave", function( event ) { 
+                    // select the box layers
+                    let boxTop = document.getElementsByClassName('top-layer')[0];
+                    let boxBottom = document.getElementsByClassName('bottom-layer')[0];
+                    let boxLeft = document.getElementsByClassName('left-layer')[0];
+                    let boxRight = document.getElementsByClassName('right-layer')[0];
+
+                    // fades the layers out 
+                    boxTop.setAttribute("style", `grid-column:1/51; grid-row: 1/${boxes.top}; background-color: lightgray; visibility: hidden; opacity: 0; transition: visibility 0s 2s, opacity  0.5s linear;`);
+                    boxBottom.setAttribute("style", `grid-column:1/51; grid-row: ${boxes.bottom}/51; background-color: lightgray; visibility: hidden; opacity: 0; transition: visibility 0s 2s, opacity  0.5s linear;`);
+                    boxLeft.setAttribute("style", `grid-column:1/${boxes.left}; grid-row: 1/51; background-color: lightgray; visibility: hidden; opacity: 0; transition: visibility 0s 2s, opacity  0.5s linear;`);
+                    boxRight.setAttribute("style", `grid-column:${boxes.right}/51; grid-row: 1/51; background-color: lightgray; visibility: hidden; opacity: 0; transition: visibility 0s 2s, opacity  0.5s linear;`);
+
+                    // reset the text, fade out animation
+                    let title = document.getElementsByClassName("paragraphTitle")[0];
+                    title.setAttribute("style", "visibility: hidden; opacity: 0; transition: visibility 0s 2s, opacity  0.5s linear;");
+
+                    let paragraph = document.getElementsByClassName("paragraphText")[0];
+                    paragraph.setAttribute("style", "visibility: hidden; opacity: 0; transition: visibility 0s 2s, opacity  0.5s linear;");
+
+                }, false);
+            };
+        </script>
     </main>
     
 </body>
-<script src="index.js"></script>
 </html>

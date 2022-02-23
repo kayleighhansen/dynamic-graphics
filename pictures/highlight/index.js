@@ -9,57 +9,7 @@ let data = {
             "left": 21,
             "right": 33,
             "url": "#"
-        },
-        {
-            "id": "2",
-            "title": "Mouse",
-            "paragraph": "The best mouse ever",
-            "top" : 25,
-            "bottom": 51,
-            "left": 23,
-            "right": 32,
-            "url": "#"
-        },
-        {
-            "id": "3",
-            "title": "Pens",
-            "paragraph": "The best pens ever",
-            "top" : 20,
-            "bottom": 51,
-            "left": 16,
-            "right": 23,
-            "url": "#"
-        },
-        {
-            "id": "4",
-            "title": "Notebook",
-            "paragraph": "The best notebook ever",
-            "top" : 14,
-            "bottom": 51,
-            "left": 1,
-            "right": 16,
-            "url": "#"
-        },
-        {
-            "id": "5",
-            "title": "Magnifying Glass",
-            "paragraph": "The best magnifying glass ever",
-            "top" : 3,
-            "bottom": 18,
-            "left": 1,
-            "right": 25,
-            "url": "#"
-        },
-        {
-            "id": "6",
-            "title": "Computer",
-            "paragraph": "The best computer ever",
-            "top" : 1,
-            "bottom": 32,
-            "left": 32,
-            "right": 51,
-            "url": "#"
-        },
+        }
     ]
 };
 
